@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Listando os livros</title>		
+</head>
+<body>
+	<div class="container-fluid" style="background-color: #e6f2ff;">
+		<div class="row" style="padding: 1%;">
+			<div class="col-md-6 text-center"><a class="text-decoration-none text-dark" href="cadastrar.php"><b>Cadastre mais livros!</b></a></div>			
+		</div>
+	</div>
+	<section>
+		<table class="table table-hover">
+			<thead class="bg-primary">
+				<tr class="text-light text-center">
+					<th>ID</th>
+					<th>Nome</th>
+					<th>Ano</th>
+					<th>Cadastro</th>
+					<th>Exemplares</th>
+					<th>Controles</th>
+				</tr>
+			</thead>
+			<tbody id="lista">
+				
+			</tbody>
+		</table>
+	</section>
+<script src="js/jquery.js"></script>
+<script>
+	$(document).ready(function(){
+		$('#lista').load('http://profrodolfo.com.br/livro/ajax.php?listar');
+	});
+	$(document).on('click','.excluir',function(){
+		var id = $(this).attr('codigo');
+		$.ajax({
+			type: 'GET',
+			url: 'http://profrodolfo.com.br/livro/ajax.php',
+			data: {id_livro: id, excluir:0},
+			success:function(retorno){
+				alert(retorno);
+				$('#lista').load('http://profrodolfo.com.br/livro/ajax.php?listar');
+			}
+		});
+		return false;
+	});
+</script>
+</body>
+</html>
