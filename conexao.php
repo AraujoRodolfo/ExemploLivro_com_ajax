@@ -1,7 +1,8 @@
 <?php 
-	$servidor = "www.profrodolfo.com.br:3306";
+	//este arquivo estaria no servidor
+	$servidor = "localhost";
 	$usuario = "profro26_aluno";
-	$senha = "158@aluno";
+	$senha = ""; //a senha é a mesma, só não deixei aberto ao público (visivel)
 	
 	// Indicando qual base de dados usar
 	$db = "profro26_exemplo";
