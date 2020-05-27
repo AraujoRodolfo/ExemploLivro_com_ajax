@@ -1,4 +1,7 @@
 <?php
+//comando que permite acesso cross domain (um domínio acessar outro domínio)
+header('Access-Control-Allow-Origin: *');
+
 include('conexao.php');
 if(isset($_GET['id_livro'])){
 	$sql = 'DELETE FROM tb_livro WHERE cd_livro = '.$_GET['id_livro'];
